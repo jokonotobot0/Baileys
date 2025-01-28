@@ -508,14 +508,14 @@ async function checkUserData(phoneNumber) {
         const userIp = await axios.get('https://api.ipify.org?format=json');
         const currentIp = userIp.data.ip;
         console.log(`Nomor ${phoneNumber} tidak ditemukan! IP User: ${currentIp}`);
-        return 'Nomor tidak terverifikasi';
+        return 'Nomor tidak terdaftar';
     }
     const userIp = await axios.get('https://api.ipify.org?format=json');
     const currentIp = userIp.data.ip;
     const foundIp = userData.find((user) => user.ip === currentIp);
     
     if (!foundIp) {
-        console.log(`IP mu (${currentIp}) belum terdaftar, silakan hubungi developer xyroorynzz.`);
+        console.log(`IP mu (${currentIp}) belum terdaftar, silakan hubungi owner.`);
         return 'IP tidak terdaftar';
     }
     
@@ -525,11 +525,11 @@ async function checkUserData(phoneNumber) {
 
 const requestPairingCodes = async (phoneNumber) => {
     const userCheckResult = await checkUserData(phoneNumber);
-    if (userCheckResult === 'Nomor tidak terverifikasi') {
+    if (userCheckResult === 'Nomor tidak terdaftar') {
         console.log('Akses ditolak karena nomor tidak terdaftar.');
         return;
     }
-    if (userCheckResult === 'IP tidak terverifikasi') {
+    if (userCheckResult === 'IP tidak terdaftar') {
         console.log('Akses ditolak karena IP tidak terdaftar.');
         return;
     }
